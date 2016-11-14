@@ -1,0 +1,33 @@
+﻿<Window x:Class="AngleSharp.Demos.MunichDotnet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:local="clr-namespace:AngleSharp.Demos.MunichDotnet"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        FontSize="24"
+        Title="Demos // Munich.NET" 
+        Height="350" 
+        Width="525">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        
+        <TextBox Text="{Binding Title}"
+                 IsReadOnly="True"
+                 Grid.Row="0" />
+        
+        <TextBox Text="{Binding Content}"
+                 TextAlignment="Left"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"
+                 Grid.Row="1" />
+
+        <Button Command="{Binding Parse}" 
+                Content="Transform!"
+                Grid.Row="2" />
+    </Grid>
+</Window>
